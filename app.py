@@ -5,41 +5,6 @@ import plotly.graph_objs as go
 import pandas as pd
 import numpy as np
   
-# function of numpy.random
-np.random.seed(42)
-  
-random_x = np.random.randint(1, 101, 100)
-random_y = np.random.randint(1, 101, 100)
-  
-plot = go.Figure(data=[go.Scatter(
-    x=random_x,
-    y=random_y,
-    mode='markers',)
-])
-  
-# Add dropdown
-plot.update_layout(
-    updatemenus=[
-        dict(
-            buttons=list([
-                dict(
-                    args=["type", "scatter"],
-                    label="Scatter Plot",
-                    method="restyle"
-                ),
-                dict(
-                    args=["type", "bar"],
-                    label="Bar Chart",
-                    method="restyle"
-                )
-            ]),
-            direction="down",
-        ),
-    ]
-)
-  
-plot.show()
-
 ########### Define your variables ######
 
 # here's the list of possible columns to choose from.
@@ -76,6 +41,42 @@ fig.update_layout(
     width=1200,
     height=800
 )
+
+# function of numpy.random
+np.random.seed(42)
+  
+random_x = np.random.randint(1, 101, 100)
+random_y = np.random.randint(1, 101, 100)
+  
+plot = go.Figure(data=[go.Scatter(
+    x=random_x,
+    y=random_y,
+    mode='markers',)
+])
+  
+# Add dropdown
+plot.update_layout(
+    updatemenus=[
+        dict(
+            buttons=list([
+                dict(
+                    args=["type", "scatter"],
+                    label="Scatter Plot",
+                    method="restyle"
+                ),
+                dict(
+                    args=["type", "bar"],
+                    label="Bar Chart",
+                    method="restyle"
+                )
+            ]),
+            direction="down",
+        ),
+    ]
+)
+  
+plot.show()
+
 
 ########### Initiate the app
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
