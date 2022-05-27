@@ -3,7 +3,7 @@ import dash_core_components as dcc
 import dash_html_components as html
 import plotly.graph_objs as go
 import pandas as pd
-import numpy as np
+
   
 ########### Define your variables ######
 
@@ -42,18 +42,7 @@ fig.update_layout(
     height=800
 )
 
-# function of numpy.random
-np.random.seed(42)
-  
-random_x = np.random.randint(1, 101, 100)
-random_y = np.random.randint(1, 101, 100)
-  
-plot = go.Figure(data=[go.Scatter(
-    x=random_x,
-    y=random_y,
-    mode='markers',)
-])
-  
+
 # Add dropdown
 plot.update_layout(
     updatemenus=[
@@ -87,17 +76,24 @@ app.title=tabtitle
 ########### Set up the layout
 
 app.layout = html.Div(children=[
-    html.H1(myheading1),
-    dcc.Graph(
-        id='figure-1',
-        figure=fig
-    ),
+    html.H1('2011 Agricultural Exports, by State'),
+    html.Div([
+        html.Div([
+                html.H6('Select a variable for analysis:'),
+                dcc.Dropdown(
+                    id='options-drop',
+                    options=[{'label': i, 'value': i} for i in list_of_columns],
+                    value='corn'
+                ),
+        ], className='two columns'),
+        html.Div([dcc.Graph(id='figure-1'),
+            ], className='ten columns'),
+    ], className='twelve columns'),
     html.A('Code on Github', href=githublink),
     html.Br(),
     html.A("Data Source", href=sourceurl),
     ]
 )
-
 ############ Deploy
 if __name__ == '__main__':
     app.run_server()
