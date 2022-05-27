@@ -5,8 +5,6 @@ import plotly.graph_objs as go
 import pandas as pd
 import numpy as np
   
-  
-# creating random data through randomint
 # function of numpy.random
 np.random.seed(42)
   
