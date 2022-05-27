@@ -76,7 +76,7 @@ app.title=tabtitle
 ########### Set up the layout
 
 app.layout = html.Div(children=[
-    html.H1('2011 Agricultural Exports, by State'),
+    html.H1(myheading1),
     html.Div([
         html.Div([
                 html.H6('Select a variable for analysis:'),
@@ -86,14 +86,16 @@ app.layout = html.Div(children=[
                     value='corn'
                 ),
         ], className='two columns'),
-        html.Div([dcc.Graph(id='figure-1'),
-            ], className='ten columns'),
-    ], className='twelve columns'),
+    dcc.Graph(
+        id='figure-1',
+        figure=fig
+    ),
     html.A('Code on Github', href=githublink),
     html.Br(),
     html.A("Data Source", href=sourceurl),
     ]
 )
+
 ############ Deploy
 if __name__ == '__main__':
     app.run_server()
