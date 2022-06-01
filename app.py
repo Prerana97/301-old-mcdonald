@@ -56,7 +56,7 @@ app.layout = html.Div(children=[
         figure=fig
     ),
     dcc.Dropdown(id='dropdown_menu', options=[{'label': i, 'value': i} for i in list_of_columns],
-                    value='Select from dropdown'
+                    value='Wheat'
                 ),
     html.A('Code on Github', href=githublink),
     html.Br(),
