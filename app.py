@@ -24,7 +24,7 @@ githublink = 'https://github.com/austinlasseter/dash-map-usa-agriculture'
 ########## Set up the chart
 
 import pandas as pd
-df = pd.read_csv('usa-2011-agriculture.csv')
+df = pd.read_csv('commodity_detail_by_state_cy.csv')
 
 fig = go.Figure(data=go.Choropleth(
     locations=df['code'], # Spatial coordinates
