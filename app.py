@@ -24,7 +24,7 @@ githublink = 'https://github.com/austinlasseter/dash-map-usa-agriculture'
 ########## Set up the chart
 
 import pandas as pd
-df = pd.read_csv('assets/usa-2011-agriculture.csv')
+df = pd.read_csv('commodity_detail_by_state_cy.xlsx')
 
 fig = go.Figure(data=go.Choropleth(
     locations=df['code'], # Spatial coordinates
@@ -56,7 +56,7 @@ app.layout = html.Div(children=[
         figure=fig
     ),
     dcc.Dropdown(id='dropdown_menu', options=[{'label': i, 'value': i} for i in list_of_columns],
-                    value='corn'
+                    value='Select from dropdown'
                 ),
     html.A('Code on Github', href=githublink),
     html.Br(),
