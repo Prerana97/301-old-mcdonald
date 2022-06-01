@@ -4,7 +4,6 @@ import dash_html_components as html
 import plotly.graph_objs as go
 import pandas as pd
 
-  
 ########### Define your variables ######
 
 # here's the list of possible columns to choose from.
@@ -42,31 +41,6 @@ fig.update_layout(
     height=800
 )
 
-
-# Add dropdown
-plot.update_layout(
-    updatemenus=[
-        dict(
-            buttons=list([
-                dict(
-                    args=["type", "scatter"],
-                    label="Scatter Plot",
-                    method="restyle"
-                ),
-                dict(
-                    args=["type", "bar"],
-                    label="Bar Chart",
-                    method="restyle"
-                )
-            ]),
-            direction="down",
-        ),
-    ]
-)
-  
-plot.show()
-
-
 ########### Initiate the app
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
@@ -77,15 +51,6 @@ app.title=tabtitle
 
 app.layout = html.Div(children=[
     html.H1(myheading1),
-    html.Div([
-        html.Div([
-                html.H6('Select a variable for analysis:'),
-                dcc.Dropdown(
-                    id='options-drop',
-                    options=[{'label': i, 'value': i} for i in list_of_columns],
-                    value='corn'
-                ),
-        ], className='two columns'),
     dcc.Graph(
         id='figure-1',
         figure=fig
